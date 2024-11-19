@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">СalculatorUpgrade</string>
+    <string name="info">Info</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="multiplication">*</string>
+    <string name="division">/</string>
+    <string name="equally_button">=</string>
+    <string name="point_button">.</string>
+</resources>
