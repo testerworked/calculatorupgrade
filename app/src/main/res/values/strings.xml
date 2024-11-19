@@ -7,4 +7,17 @@
     <string name="division">/</string>
     <string name="equally_button">=</string>
     <string name="point_button">.</string>
+    <string name="menu_exit">Exit</string>
+    <string name="reset_button">Reset</string>
+    <string name="text_et_input">Введите выражение</string>
+    <string name="button_zero">0</string>
+    <string name="button_one">1</string>
+    <string name="button_two">2</string>
+    <string name="button_three">3</string>
+    <string name="button_four">4</string>
+    <string name="button_five">5</string>
+    <string name="button_six">6</string>
+    <string name="button_seven">7</string>
+    <string name="button_eight">8</string>
+    <string name="button_nine">9</string>
 </resources>
