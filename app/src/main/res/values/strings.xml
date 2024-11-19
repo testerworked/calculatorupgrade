@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">СalculatorUpgrade</string>
     <string name="info">Info</string>
+    <string name="toolbar_header">Калькулятор</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="multiplication">*</string>
@@ -9,7 +10,8 @@
     <string name="point_button">.</string>
     <string name="menu_exit">Exit</string>
     <string name="reset_button">Reset</string>
-    <string name="text_et_input">Введите выражение</string>
+    <string name="text_et_input">input</string>
+    <string name="text_result">result</string>
     <string name="button_zero">0</string>
     <string name="button_one">1</string>
     <string name="button_two">2</string>
