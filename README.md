@@ -3,5 +3,8 @@ GridLayout, TableLayout - Calculator application
 
 <br>
 
-![calc_0](https://github.com/user-attachments/assets/ee5df726-f11b-4dd6-b603-94cf596ca56e)
+
+![calc_1](https://github.com/user-attachments/assets/bb462e79-d4ad-4b36-9872-5ca3f803b73d)
+
+
 
