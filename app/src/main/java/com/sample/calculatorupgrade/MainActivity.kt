@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.GridLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var inputET: EditText
     private lateinit var resultTV: TextView
+    private lateinit var inputField: EditText
+    private lateinit var outputField: TextView
+    private var currentExpression: String = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +32,28 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        inputET = findViewById(R.id.inputET)
-        resultTV = findViewById(R.id.resultTV)
 
-        val customKeyboard = findViewById<GridLayout>(R.id.customKeyboard)
-        for (i in 0 until customKeyboard.childCount) {
-            val button = customKeyboard.getChildAt(i) as Button
-            button.setOnClickListener { onKeyboardButtonClick(button) }
+        supportActionBar?.title = "Калькулятор"
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+        inputField = findViewById(R.id.inputET)
+        outputField = findViewById(R.id.resultTV)
+
+        // Инициализация кнопок
+        val buttons = listOf(
+            R.id.button0, R.id.button1, R.id.button2, R.id.button3,
+            R.id.button4, R.id.button5, R.id.button6, R.id.button7,
+            R.id.button8, R.id.button9, R.id.buttonDot, R.id.buttonPlus,
+            R.id.buttonMinus, R.id.buttonDivide, R.id.buttonMultiply
+        )
+
+        buttons.forEach { id ->
+            findViewById<Button>(id).setOnClickListener { onButtonClick((it as Button).text.toString()) }
         }
+
+        findViewById<Button>(R.id.buttonEquals).setOnClickListener { calculateResult() }
+        findViewById<Button>(R.id.resetData).setOnClickListener { clearInput() }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -42,72 +61,29 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        findViewById<Button>(R.id.button_reset).setOnClickListener {
-            resetInput()
-        }
+
     }
 
-    private fun resetInput() {
-        inputET.text.clear()
-        resultTV.text = ""
+
+    private fun onButtonClick(value: String) {
+        currentExpression += value
+        inputField.setText(currentExpression)
     }
 
-    private fun onKeyboardButtonClick(button: Button) {
-        val buttonText = button.text.toString()
-
-        if (buttonText == "=") {
-            calculateResult()
-        } else {
-            inputET.setText(inputET.text.toString() + buttonText)
-        }
+    private fun clearInput() {
+        currentExpression = ""
+        inputField.setText("")
+        outputField.text = ""
     }
 
     private fun calculateResult() {
-        val expression = inputET.text.toString()
         try {
-            val result = evaluateExpression(expression)
-            resultTV.text = result.toString()
+            inputField.setText(inputField.text.toString() + "=")
+            val result = ExpressionEvaluator.evaluate(currentExpression)
+            outputField.text = result.toString()
         } catch (e: Exception) {
-            resultTV.text = "Ошибка"
+            Toast.makeText(this, "Ошибка: неверное выражение", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun evaluateExpression(expression: String): Double {
-        val formattedExpression = expression.replace(" ", "")
-        val numbers = mutableListOf<Double>()
-        val operations = mutableListOf<Char>()
-        val regex = Regex("([+-]?\\d*\\.?\\d+|[-+/*])")
-
-        regex.findAll(formattedExpression).forEach {
-            if (it.value.toDoubleOrNull() != null) {
-                numbers.add(it.value.toDouble())
-            } else {
-                operations.add(it.value.first())
-            }
-        }
-
-        var i = 0
-        while (i < operations.size) {
-            when (operations[i]) {
-                '*', '/' -> {
-                    val operation = operations.removeAt(i)
-                    val leftNumber = numbers.removeAt(i)
-                    val rightNumber = numbers.removeAt(i)
-                    val result = if (operation == '*') leftNumber * rightNumber else leftNumber / rightNumber
-                    numbers.add(i, result)
-                }
-                else -> i++
-            }
-        }
-
-        var result = numbers[0]
-        for (j in 0 until operations.size) {
-            when (operations[j]) {
-                '+' -> result += numbers[j + 1]
-                '-' -> result -= numbers[j + 1]
-            }
-        }
-        return result
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -124,7 +100,6 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 
 
 }

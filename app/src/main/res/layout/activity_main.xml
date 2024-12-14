@@ -45,81 +45,118 @@
         android:id="@+id/customKeyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="30dp"
         android:columnCount="4"
         android:rowCount="6"
         app:layout_constraintTop_toBottomOf="@+id/resultTV">
 
-        <Button android:text="@string/division"
+        <Button
+            android:id="@+id/buttonDivide"
+            android:text="@string/division"
             android:layout_column="3"
             android:layout_row="0"/>
 
-        <Button android:text="@string/button_one"
+        <Button
+            android:id="@+id/button1"
+            android:text="@string/button_one"
             android:layout_column="0"
             android:layout_row="1" />
 
-        <Button android:text="@string/button_two"
+        <Button
+            android:id="@+id/button2"
+            android:text="@string/button_two"
             android:layout_column="1"
             android:layout_row="1" />
 
-        <Button android:text="@string/button_three"
+        <Button
+            android:id="@+id/button3"
+            android:text="@string/button_three"
             android:layout_column="2"
             android:layout_row="1" />
 
-        <Button android:text="@string/multiplication"
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:text="@string/multiplication"
             android:layout_column="3"
             android:layout_row="1" />
 
-        <Button android:text="@string/button_four"
+        <Button
+            android:id="@+id/button4"
+            android:text="@string/button_four"
             android:layout_column="0"
             android:layout_row="2"/>
 
-        <Button android:text="@string/button_five"
+        <Button
+            android:id="@+id/button5"
+            android:text="@string/button_five"
             android:layout_column="1"
             android:layout_row="2"/>
 
-        <Button android:text="@string/button_six"
+        <Button
+            android:id="@+id/button6"
+            android:text="@string/button_six"
             android:layout_column="2"
             android:layout_row="2"/>
 
-        <Button android:text="@string/minus"
+        <Button
+            android:id="@+id/buttonMinus"
+            android:text="@string/minus"
             android:layout_column="3"
             android:layout_row="2"/>
 
 
-        <Button android:text="@string/button_seven"
+        <Button
+            android:id="@+id/button7"
+            android:text="@string/button_seven"
             android:layout_column="0"
             android:layout_row="3" />
 
-        <Button android:text="@string/button_eight"
+        <Button
+            android:id="@+id/button8"
+            android:text="@string/button_eight"
             android:layout_column="1"
             android:layout_row="3"/>
 
-        <Button android:text="@string/button_nine"
+        <Button
+            android:id="@+id/button9"
+            android:text="@string/button_nine"
             android:layout_column="2"
             android:layout_row="3"/>
 
         <Button
+            android:id="@+id/buttonPlus"
             android:layout_height="144dp"
             android:layout_row="3"
             android:layout_rowSpan="3"
             android:layout_column="3"
             android:text="@string/plus" />
 
-        <Button android:text="@string/button_zero"
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="172dp"
+            android:layout_row="4"
             android:layout_column="0"
-            android:layout_row="4" />
-
-        <Button android:text="@string/point_button" />
-
-        <Button android:text="@string/equally_button"
-            android:layout_column="0"
-            android:layout_row="5" />
+            android:layout_columnSpan="2"
+            android:text="@string/button_zero" />
 
         <Button
-            android:id="@+id/button_reset"
+            android:id="@+id/buttonDot"
+            android:text="@string/point_button"
+            android:visibility="gone"
+            />
+
+        <Button
+            android:id="@+id/buttonEquals"
+            android:layout_width="261dp"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_columnSpan="3"
+            android:text="@string/equally_button" />
+
+        <Button
+            android:id="@+id/resetData"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="61dp"
             android:layout_columnSpan="4"
             android:text="@string/reset_button"
             app:layout_constraintEnd_toEndOf="parent"
