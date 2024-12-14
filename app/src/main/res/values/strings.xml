@@ -12,6 +12,8 @@
     <string name="reset_button">Reset</string>
     <string name="text_et_input">input</string>
     <string name="text_result">result</string>
+
+
     <string name="button_zero">0</string>
     <string name="button_one">1</string>
     <string name="button_two">2</string>
