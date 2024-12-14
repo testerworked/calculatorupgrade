@@ -17,8 +17,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var inputET: EditText
-    private lateinit var resultTV: TextView
     private lateinit var inputField: EditText
     private lateinit var outputField: TextView
     private var currentExpression: String = ""
@@ -32,14 +30,12 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-
         supportActionBar?.title = "Калькулятор"
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         inputField = findViewById(R.id.inputET)
         outputField = findViewById(R.id.resultTV)
 
-        // Инициализация кнопок
         val buttons = listOf(
             R.id.button0, R.id.button1, R.id.button2, R.id.button3,
             R.id.button4, R.id.button5, R.id.button6, R.id.button7,
@@ -54,13 +50,11 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.buttonEquals).setOnClickListener { calculateResult() }
         findViewById<Button>(R.id.resetData).setOnClickListener { clearInput() }
 
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
 
     }
 
