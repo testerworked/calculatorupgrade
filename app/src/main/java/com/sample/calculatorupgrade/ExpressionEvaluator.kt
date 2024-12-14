@@ -1,14 +1,15 @@
 package com.sample.calculatorupgrade
 
 object ExpressionEvaluator {
-    fun evaluate(expression: String): Double {
-        val sanitizedExpression = expression.replace("×", "*").replace("÷", "/")
+
+    fun evaluate(inputExp: String): Double {
+        val purifiedExp = inputExp.replace("×", "*").replace("÷", "/")
         return object : Any() {
             var pos = -1
             var ch: Char = ' '
 
             fun nextChar() {
-                ch = if (++pos < sanitizedExpression.length) sanitizedExpression[pos] else '\u0000'
+                ch = if (++pos < purifiedExp.length) purifiedExp[pos] else '\u0000'
             }
 
             fun eat(charToEat: Char): Boolean {
@@ -23,7 +24,7 @@ object ExpressionEvaluator {
             fun parse(): Double {
                 nextChar()
                 val x = parseExpression()
-                if (pos < sanitizedExpression.length) throw RuntimeException("Unexpected: $ch")
+                if (pos < purifiedExp.length) throw RuntimeException("Unexpected: $ch")
                 return x
             }
 
@@ -59,7 +60,7 @@ object ExpressionEvaluator {
                     eat(')')
                 } else if (ch in '0'..'9' || ch == '.') {
                     while (ch in '0'..'9' || ch == '.') nextChar()
-                    x = sanitizedExpression.substring(startPos, pos).toDouble()
+                    x = purifiedExp.substring(startPos, pos).toDouble()
                 } else {
                     throw RuntimeException("Unexpected: $ch")
                 }

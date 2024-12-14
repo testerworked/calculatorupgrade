@@ -20,108 +20,114 @@
 
     <EditText
         android:id="@+id/inputET"
-        android:layout_width="match_parent"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
         android:layout_margin="18dp"
         android:clickable="false"
         android:focusable="false"
         android:hint="@string/text_et_input"
         android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/resultTV"
-        android:layout_width="match_parent"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
         android:layout_margin="18dp"
         android:hint="@string/text_result"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputET"
         tools:ignore="MissingConstraints" />
 
     <GridLayout
         android:id="@+id/customKeyboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_width="356dp"
+        android:layout_height="359dp"
+        android:layout_marginTop="20dp"
         android:columnCount="4"
         android:rowCount="6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultTV">
 
         <Button
             android:id="@+id/buttonDivide"
-            android:text="@string/division"
+            android:layout_row="0"
             android:layout_column="3"
-            android:layout_row="0"/>
+            android:text="@string/division" />
 
         <Button
             android:id="@+id/button1"
-            android:text="@string/button_one"
+            android:layout_row="1"
             android:layout_column="0"
-            android:layout_row="1" />
+            android:text="@string/button_one" />
 
         <Button
             android:id="@+id/button2"
-            android:text="@string/button_two"
+            android:layout_row="1"
             android:layout_column="1"
-            android:layout_row="1" />
+            android:text="@string/button_two" />
 
         <Button
             android:id="@+id/button3"
-            android:text="@string/button_three"
+            android:layout_row="1"
             android:layout_column="2"
-            android:layout_row="1" />
+            android:text="@string/button_three" />
 
         <Button
             android:id="@+id/buttonMultiply"
-            android:text="@string/multiplication"
+            android:layout_row="1"
             android:layout_column="3"
-            android:layout_row="1" />
+            android:text="@string/multiplication" />
 
         <Button
             android:id="@+id/button4"
-            android:text="@string/button_four"
+            android:layout_row="2"
             android:layout_column="0"
-            android:layout_row="2"/>
+            android:text="@string/button_four" />
 
         <Button
             android:id="@+id/button5"
-            android:text="@string/button_five"
+            android:layout_row="2"
             android:layout_column="1"
-            android:layout_row="2"/>
+            android:text="@string/button_five" />
 
         <Button
             android:id="@+id/button6"
-            android:text="@string/button_six"
+            android:layout_row="2"
             android:layout_column="2"
-            android:layout_row="2"/>
+            android:text="@string/button_six" />
 
         <Button
             android:id="@+id/buttonMinus"
-            android:text="@string/minus"
+            android:layout_row="2"
             android:layout_column="3"
-            android:layout_row="2"/>
+            android:text="@string/minus" />
 
 
         <Button
             android:id="@+id/button7"
-            android:text="@string/button_seven"
+            android:layout_row="3"
             android:layout_column="0"
-            android:layout_row="3" />
+            android:text="@string/button_seven" />
 
         <Button
             android:id="@+id/button8"
-            android:text="@string/button_eight"
+            android:layout_row="3"
             android:layout_column="1"
-            android:layout_row="3"/>
+            android:text="@string/button_eight" />
 
         <Button
             android:id="@+id/button9"
-            android:text="@string/button_nine"
+            android:layout_row="3"
             android:layout_column="2"
-            android:layout_row="3"/>
+            android:text="@string/button_nine" />
 
         <Button
             android:id="@+id/buttonPlus"
@@ -142,8 +148,7 @@
         <Button
             android:id="@+id/buttonDot"
             android:text="@string/point_button"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/buttonEquals"
@@ -155,7 +160,7 @@
 
         <Button
             android:id="@+id/resetData"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="61dp"
             android:layout_columnSpan="4"
             android:text="@string/reset_button"
@@ -166,6 +171,7 @@
 
 
     </GridLayout>
+
 
 
 
